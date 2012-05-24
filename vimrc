@@ -14,6 +14,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'pylint.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
 filetype plugin indent on
 
 
