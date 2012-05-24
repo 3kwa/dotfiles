@@ -13,7 +13,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pylint.vim'
 Bundle 'SirVer/ultisnips'
-
+Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
 
 
@@ -139,4 +139,4 @@ let NERDTreeIgnore=['\.pyc']
 command! W w !sudo tee % > /dev/null
 
 " after saving .vimrc reload
-autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost vimrc source ~/.vimrc
