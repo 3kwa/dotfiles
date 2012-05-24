@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if ! [ -L "$HOME/.vimrc" ]; then
     rm -f ~/.vimrc
     ln -s ~/Code/dotfiles/vimrc ~/.vimrc
