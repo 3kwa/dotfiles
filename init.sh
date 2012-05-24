@@ -10,4 +10,8 @@ if ! [ -d "$HOME/.vim/bundle/vundle" ]; then
     vim +BundleInstall +qall
 fi
 
+if ! [ -L "$HOME/.tmux.conf" ]; then
+    rm -f ~/.tmux.conf
+    ln -s ~/Code/dotfiles/tmux.conf ~/.tmux.conf
+fi
 
