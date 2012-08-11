@@ -8,13 +8,11 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'pylint.vim'
-Bundle 'SirVer/ultisnips'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'fs111/pydoc.vim'
 filetype plugin indent on
 
 
@@ -67,9 +65,6 @@ set shiftwidth=4
 " set softtabstop=4
 set expandtab
 
-" but for ruby
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
-
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -120,10 +115,6 @@ autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-" pylint (not on write)
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
 
 " jslint (node + npm install jslint -g)
 au FileType javascript set makeprg=jslint\ % errorformat=%-P%f,
