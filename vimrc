@@ -128,3 +128,7 @@ let NERDTreeIgnore=['\.pyc']
 
 " sudo write with :W
 command! W w !sudo tee % > /dev/null
+
+" syntastic
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=0
