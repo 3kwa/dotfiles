@@ -15,7 +15,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'fs111/pydoc.vim'
 filetype plugin indent on
 
-
 " make sure language is default i.e. English
 language C
 set langmenu=none
@@ -129,6 +128,3 @@ let NERDTreeIgnore=['\.pyc']
 
 " sudo write with :W
 command! W w !sudo tee % > /dev/null
-
-" after saving .vimrc reload
-autocmd! bufwritepost vimrc source ~/.vimrc
