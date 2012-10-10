@@ -11,7 +11,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'fs111/pydoc.vim'
 filetype plugin indent on
 
