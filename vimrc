@@ -1,18 +1,16 @@
-" Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
+" plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+call plug#end()
 
-" github
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-"Bundle 'scrooloose/syntastic'
-Bundle 'fs111/pydoc.vim'
 filetype plugin indent on
 
 " make sure language is default i.e. English
@@ -86,21 +84,15 @@ set textwidth=0
 set formatoptions=qrn1
 if has("gui_running")
    set colorcolumn=80
+    " don't need the toolbar in gVim
+    set guioptions-=T
 endif
 
 " global substitution i.e. g not required in :%s/foo/bar/
 set gdefault
 
-" IDLE type execution
-" autocmd BufNewFile,BufRead *.py map <buffer> <F5> : w!<cr>:!python %<cr>
-" autocmd BufNewFile,BufRead *.py imap <buffer> <F5> <esc>:w!<cr>:!python %<cr>
-
 " the very popular desert colorscheme for a reason
 colorscheme desert
-
-" don't need the toolbar in gVim
-set guioptions-=T
-
 
 " text with 78 characters
 autocmd BufRead *.txt set tw=78
@@ -110,25 +102,9 @@ autocmd BufWrite * silent! %s/[\r \t]\+$//
 
 " omni completion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-" jslint (node + npm install jslint -g)
-au FileType javascript set makeprg=jslint\ % errorformat=%-P%f,
-                    \%-G/*jslint\ %.%#*/,
-                    \%*[\ ]%n\ %l\\,%c:\ %m,
-                    \%-G\ \ \ \ %.%#,
-                    \%-GNo\ errors\ found.,
-                    \%-Q
-
-" NERDTree ignore
-let NERDTreeIgnore=['\.pyc']
 
 " sudo write with :W
 command! W w !sudo tee % > /dev/null
 
-" syntastic
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=0
+" fzf
+set rtp+=/usr/local/opt/fzf
