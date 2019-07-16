@@ -103,8 +103,12 @@ autocmd BufWrite * silent! %s/[\r \t]\+$//
 " omni completion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
+" close scratch / preview on completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " sudo write with :W
 command! W w !sudo tee % > /dev/null
 
 " fzf
 set rtp+=/usr/local/opt/fzf
+
