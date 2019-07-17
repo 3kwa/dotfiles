@@ -6,9 +6,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 filetype plugin indent on
@@ -101,14 +101,13 @@ autocmd BufRead *.txt set tw=78
 autocmd BufWrite * silent! %s/[\r \t]\+$//
 
 " omni completion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " close scratch / preview on completion
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " sudo write with :W
 command! W w !sudo tee % > /dev/null
 
 " fzf
 set rtp+=/usr/local/opt/fzf
-
