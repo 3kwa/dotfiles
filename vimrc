@@ -7,7 +7,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'davidhalter/jedi-vim'
 Plug 'ambv/black'
 call plug#end()
 
@@ -107,4 +106,4 @@ command! W w !sudo tee % > /dev/null
 set rtp+=/usr/local/opt/fzf
 
 " black when saving
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
